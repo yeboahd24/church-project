@@ -1,0 +1,96 @@
+{% extends "base.html" %}
+
+{% block content %}
+<style>
+    body {
+        background-size: cover;
+        background-position: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+    }
+
+    form {
+        background: rgba(255, 255, 255, 0.8);
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        max-width: 400px;
+        width: 100%;
+    }
+
+    input[type="text"],
+    input[type="email"] {
+        width: 100%;
+        padding: 10px;
+        margin: 5px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
+
+    button[type="submit"] {
+        background-color: #3498db;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        width: 100%; /* Ensures button takes up full width */
+    }
+
+    select {
+        width: 100%; /* Ensures full width */
+        padding: 10px;
+        margin: 5px 0;
+        border: 1px solid #ccc; /* Adjust border color as desired */
+        border-radius: 4px; /* Adjust border radius as desired */
+        box-sizing: border-box;
+}
+</style>
+
+<h1 style="text-align: center;">Member Signup</h1>
+
+<form method="post">
+    {% csrf_token %}
+    
+    <div style="margin-bottom: 15px;">
+        <label for="id_name">Name</label>
+        <input type="text" name="name" id="id_name">
+    </div>
+    <div style="margin-bottom: 15px;">
+        <label for="id_phone_number">Phone Number</label>
+        <input type="text" name="phone_number" id="id_phone_number">
+    </div>
+    <div style="margin-bottom: 15px;">
+        <label for="id_email">Email</label>
+        <input type="email" name="email" id="id_email">
+    </div>
+    <div style="margin-bottom: 15px;">
+        <label for="id_location">Location</label>
+        <input type="text" name="location" id="id_location">
+    </div>
+    <div style="margin-bottom: 15px;">
+        <label for="id_group_type">Group Type</label>
+        <select name="group_type" id="id_group_type">
+            <option value="" selected disabled>Select Group Type</option>
+            {% for group in groups %}
+                <option value="{{ group.id }}">{{ group.name }}</option>
+            {% endfor %}
+        </select>
+    </div>
+
+    <button type="submit">Create Member</button>
+</form>
+
+{% if messages %}
+    <ul style="color: red;">
+        {% for message in messages %}
+            <li>{{ message }}</li>
+        {% endfor %}
+    </ul>
+{% endif %}
+{% endblock %}

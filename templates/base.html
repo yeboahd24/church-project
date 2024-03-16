@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Knowledge Of Christ Chapel International</title>
+    <style>
+        body {
+            background-image: url("https://source.unsplash.com/featured/?church");
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            font-family: sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .content {
+            max-width: 7xl;
+            margin: 0 auto;
+            padding: 3rem;
+            background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white background */
+            border-radius: 10px;
+        }
+
+        .member-nav ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .member-nav li {
+            display: inline;
+            margin-right: 10px;
+        }
+
+        .member-nav a {
+            text-decoration: none;
+            color: black;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="content">
+        <nav class="member-nav">
+            <ul>
+                <li><a href="{% url 'staff:signup' %}">Sign up</a></li>
+                <li><a href="{% url 'member:members' %}">Members</a></li>
+                <li><a href="{% url 'member:add_member' %}">Register Member</a></li>
+
+            </ul>
+        </nav>
+        {% block content %}
+        {% endblock %}
+        <footer style="padding: 10px;">
+            <div class="social-links" style="padding: 10px;">
+                <a href="https://github.com/yeboahd24" style="padding: 5px;"><i class="fab fa-github"></i> GitHub</a>
+                <a href="https://www.google.com" style="padding: 5px;"><i class="fab fa-google"></i> Google</a>
+                <a href="https://www.facebook.com" style="padding: 5px;"><i class="fab fa-facebook"></i> Facebook</a>
+                <a href="https://twitter.com" style="padding: 5px;"><i class="fab fa-twitter"></i> Twitter</a>
+            </div>
+        </footer>
+</body>
+</html>
