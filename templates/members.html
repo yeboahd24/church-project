@@ -59,7 +59,17 @@
     tr:hover {
         background-color: #f1f1f1;
     }
-</style>
+
+    button.delete-button {
+        background-color: #e74c3c;
+        color: white;
+        border: none;
+        padding: 8px 16px;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+    </style>
 <h1>List of Members</h1>
 <form method="get" action="">
   <input type="text" name="q" placeholder="Search by name" value="{{ query }}">
@@ -74,6 +84,7 @@
       <th>Email</th>
       <th>Location</th>
       <th>Group</th>
+      <th>Action</th>
     </tr>
   </thead>
   <tbody>
@@ -84,6 +95,12 @@
       <td>{{ member.email }}</td>
       <td>{{ member.location }}</td>
       <td>{{ member.group_type }}</td>
+      <td>
+       <form method="post" action="{% url 'member:delete_member' member.id %}">
+          {% csrf_token %}
+          <button type="submit" class="delete-button">Delete</button>
+        </form>
+      </td>
     </tr>
     {% endfor %}
   </tbody>

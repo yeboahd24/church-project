@@ -9,22 +9,25 @@ from django.contrib import messages
 
 @login_required
 def create_member(request):
-    if request.method == 'POST':
+    if request.method == "POST":
         form = MemberForm(request.POST)
         groups = Group.objects.all()
-        context = {'groups': groups, 'form': form}
+        context = {"groups": groups, "form": form}
 
         if form.is_valid():
-            member_name = form.cleaned_data['name']
+            member_name = form.cleaned_data["name"]
             if Group.objects.filter(name=member_name).exists():
-                messages.error(request, 'Member already exists.')  # Add error message if member already exists
+                messages.error(
+                    request, "Member already exists."
+                )  # Add error message if member already exists
             else:
                 member = form.save()
-                messages.success(request, 'Member created successfully.')
-                return redirect('member:members')
+                messages.success(request, "Member created successfully.")
+                return redirect("member:members")
     else:
         form = MemberForm()
         groups = Group.objects.all()
-        context = {'groups': groups, 'form': form}
+        context = {"groups": groups, "form": form}
 
-    return render(request, 'add_member.html', context=context)
+    return render(request, "add_member.html", context=context)
+
