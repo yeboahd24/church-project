@@ -36,9 +36,9 @@ INSTALLED_APPS = [
     "django.contrib.contenttypes",
     "django.contrib.sessions",
     "django.contrib.messages",
-    "cloudinary_storage",
+    # "cloudinary_storage",
     "django.contrib.staticfiles",
-    "cloudinary",
+    # "cloudinary",
 ]
 
 
@@ -149,5 +149,5 @@ LOGIN_URL = "/login/"
 #     "API_SECRET": "0UuXhg8KozyyKiFzgXsr_F4BSy4",
 # }
 
-MEDIA_URL = "/media/"  # or any prefix you choose
+# MEDIA_URL = "/media/"  # or any prefix you choose
 # DEFAULT_FILE_STORAGE = "cloudinary_storage.storage.MediaCloudinaryStorage"
