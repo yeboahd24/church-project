@@ -141,11 +141,11 @@ AUTHENTICATION_BACKENDS = [
 
 LOGIN_URL = "/login/"
 
-CLOUDINARY_STORAGE = {
-    "CLOUD_NAME": "koldchain",
-    "API_KEY": "579463126772261",
-    "API_SECRET": "0UuXhg8KozyyKiFzgXsr_F4BSy4",
-}
+# CLOUDINARY_STORAGE = {
+#     "CLOUD_NAME": "koldchain",
+#     "API_KEY": "579463126772261",
+#     "API_SECRET": "0UuXhg8KozyyKiFzgXsr_F4BSy4",
+# }
 
 MEDIA_URL = "/media/"  # or any prefix you choose
-DEFAULT_FILE_STORAGE = "cloudinary_storage.storage.MediaCloudinaryStorage"
+# DEFAULT_FILE_STORAGE = "cloudinary_storage.storage.MediaCloudinaryStorage"
