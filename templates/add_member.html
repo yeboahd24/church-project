@@ -22,6 +22,7 @@
     }
 
     input[type="text"],
+    input[type="date"],
     input[type="email"] {
         width: 100%;
         padding: 10px;
@@ -41,6 +42,8 @@
         cursor: pointer;
         width: 100%; /* Ensures button takes up full width */
     }
+
+
 
     select {
         width: 100%; /* Ensures full width */
@@ -73,6 +76,18 @@
         <label for="id_location">Location</label>
         <input type="text" name="location" id="id_location">
     </div>
+
+    <div style="margin-bottom: 15px;">
+        <label for="id_occupation">Occupation</label>
+        <input type="text" name="occupation" id="id_occupation">
+    </div>
+
+    <div style="margin-bottom: 15px;">
+        <label for="id_dob">Date of Birth</label>
+        <input type="date" name="dob" id="id_dob">
+    </div>
+
+
     <div style="margin-bottom: 15px;">
         <label for="id_group_type">Group Type</label>
         <select name="group_type" id="id_group_type">

@@ -84,6 +84,8 @@
       <th>Email</th>
       <th>Location</th>
       <th>Group</th>
+      <th>Occupation</th>
+      <th>DOB</th>
       <th>Action</th>
     </tr>
   </thead>
@@ -95,6 +97,8 @@
       <td>{{ member.email }}</td>
       <td>{{ member.location }}</td>
       <td>{{ member.group_type }}</td>
+      <td>{{ member.occupation }}</td>
+      <td>{{ member.dob }}</td>
       <td>
        <form method="post" action="{% url 'member:delete_member' member.id %}">
           {% csrf_token %}

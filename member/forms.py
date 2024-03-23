@@ -1,16 +1,25 @@
 from django import forms
-from .models import Member,Group
+from .models import Member, Group
 
-    
 
 class MemberForm(forms.ModelForm):
     class Meta:
         model = Member
-        fields = ['name', 'phone_number', 'email', 'location', 'group_type']
+        fields = [
+            "name",
+            "phone_number",
+            "email",
+            "location",
+            "group_type",
+            "occupation",
+            "dob",
+        ]
 
-    def __init__(self, *args,**kwargs):
+    def __init__(self, *args, **kwargs):
         super(MemberForm, self).__init__(*args, **kwargs)
-        self.fields['group_type'].queryset = Group.objects.all()  # Set queryset for group_type dropdown
+        self.fields["group_type"].queryset = (
+            Group.objects.all()
+        )  # Set queryset for group_type dropdown
 
     def save(self, commit=True):
         instance = super(MemberForm, self).save(commit=False)
